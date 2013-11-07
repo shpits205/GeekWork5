@@ -96,6 +96,7 @@ playing with it, you can remove it by following these steps:
 
   * remove the routing entry referencing AcmeDemoBundle in `app/config/routing_dev.yml`;
 
+
   * remove the AcmeDemoBundle from the registered bundles in `app/AppKernel.php`;
 
   * remove the `web/bundles/acmedemo` directory;
