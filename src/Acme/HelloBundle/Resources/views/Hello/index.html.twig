@@ -1,8 +1,32 @@
-{% extends '::base.html.twig' %}
+{% extends 'AcmeHelloBundle::layout.html.twig' %}
 
 {% block body %}
-{% for i in 0..10 %}
-    <button type="button" class="btn btn-primary">Hello {{ name }}</button>
-    </br>
-{% endfor %}
+    <div class="container">
+
+        <div class="masthead">
+            <h3 class="text-muted">Домашня робота</h3>
+        </div>
+
+        {% include 'AcmeHelloBundle::Hello/template/jumbotron.html.twig' %}
+        <!-- Example row of columns -->
+        <div class="row">
+
+            {% if arr is not empty %}
+                {% for i in arr %}
+                    <div class="col-lg-4">
+                        <h2>{{ i.name }}</h2>
+
+                        <p>Столиця = {{ i.capital }}</p>
+
+                        <p>Президент = {{ i.president }}</p>
+
+                        <p>{{ "%.500s"|format(i.description) }}</p>
+
+                        <p><a class="btn btn-primary" href="{{ path('simple_template' , {'page': loop.index}) }}">View
+                                details &raquo;</a></p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

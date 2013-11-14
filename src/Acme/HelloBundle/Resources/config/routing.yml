@@ -1,3 +1,8 @@
 acme_hello_homepage:
-    pattern:  /hello/{name}
+    pattern:  /hello
     defaults: { _controller: AcmeHelloBundle:Hello:index }
+
+simple_template:
+    path: /two
+    defaults: { _controller: AcmeHelloBundle:Hello:about }
+    methods: [GET, POST]

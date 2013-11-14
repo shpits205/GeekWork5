@@ -9,10 +9,29 @@
 namespace Acme\HelloBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
-class HelloController extends Controller {
-    public function indexAction($name)
+class HelloController extends Controller
+{
+    public function indexAction()
     {
-        return $this->render('AcmeHelloBundle:Hello:index.html.twig', array('name' => $name));
+        $newObject = new ArrayCountryModel();
+
+        $param = $newObject->newArray();
+        return $this->render(
+            'AcmeHelloBundle:Hello:index.html.twig',
+            [
+                'arr' => $param
+            ]
+        );
+    }
+
+    public function aboutAction(Request $request)
+    {
+        $page = $request->query->get('page');
+        $newObject = new ArrayCountryModel();
+
+        $param = $newObject->newArray();
+        return $this->render('AcmeHelloBundle:Hello:about.html.twig', array('mas' => $param, 'page' => $page));
     }
 } 

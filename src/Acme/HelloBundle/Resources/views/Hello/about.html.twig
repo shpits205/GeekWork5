@@ -1,8 +1,25 @@
-{% extends '::base.html.twig' %}
+{% extends 'AcmeHelloBundle::layout.html.twig' %}
 
 {% block body %}
-{% for i in 0..10 %}
-    <button type="button" class="btn btn-primary">Hello {{ name }}</button>
-    </br>
-{% endfor %}
+    <div id="wrap">
+
+        <!-- Begin page content -->
+        <div class="container">
+            <div class="page-header">
+                <a href="{{ path('acme_hello_homepage') }}">
+                    <h1>{{ mas[page-1].name }}</h1>
+                </a>
+            </div>
+            <div>
+                <a href="#" class="thumbnail" style="float: left; margin-right: 10px">
+                    <img width="400"
+                         src="{{ asset('bundles/acmehello/images/%s.jpg'|format(page)) }}"/>
+                </a>
+
+                <p class="lead" style="text-align: justify">  {{ mas[page-1].description }}</p>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
+
